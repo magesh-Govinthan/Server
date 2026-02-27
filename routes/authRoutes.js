@@ -72,7 +72,7 @@ router.post("/forgot-password", async (req, res) => {
   user.resetTokenExpiry = Date.now() + 15 * 60 * 1000; // 15 min
   await user.save();
 
-  const resetLink = `http://localhost:3000/reset-password/${token}`;
+  const resetLink = `https://server1-f1r1.onrender.com/api/auth/reset-password/${token}`;
 
   await sendEmail(email, resetLink);
 
